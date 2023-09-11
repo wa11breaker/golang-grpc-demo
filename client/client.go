@@ -49,7 +49,7 @@ func main() {
 	latencies := make([]time.Duration, 0)
 
 	// Make 100 requests to the server
-	for i := 0; i < 10000; i++ {
+	for i := 0; i < 100; i++ {
 		// Get a connection from the pool
 		conn := pool.Get()
 		defer conn.Close() // Close the connection when done with it

@@ -1,0 +1,278 @@
+syntax = "proto3";
+
+package cart_service;
+
+option go_package = "cart-ms/proto/";
+
+service CartService {
+  rpc GetCart (Empty) returns (CartResponse);
+}
+
+message CartId {
+  uint32 id = 1;
+}
+
+message Brand {
+    int32 uid = 1;
+    string name = 2;
+}
+
+message Category {
+    int32 uid = 1;
+    string name = 2;
+}
+
+message Image {
+    string aspect_ratio = 1;
+    string url = 2;
+    string secure_url = 3;
+}
+
+message Action {
+    string type = 1;
+    string url = 2;
+    repeated string product_slug = 3;
+}
+
+message Attributes {
+    string essential = 1;
+    repeated string gender = 2;
+    string primary_color = 3;
+    string primary_material = 4;
+    string neck_type = 5;
+    string pattern = 6;
+    string sleeve_type = 7;
+    string care_instructions = 8;
+    string sleeve_length = 9;
+    string color = 10;
+    string material = 11;
+    string net_quantity = 12;
+    string marketer_name = 13;
+    string marketer_address = 14;
+    string name = 15;
+    string lifestyle = 16;
+    string sustainable = 17;
+    string brand_name = 18;
+    string primary_color_hex = 19;
+}
+
+message BrandInfo {
+    int32 uid = 1;
+    string name = 2;
+}
+
+message CategoryInfo {
+    int32 uid = 1;
+    string name = 2;
+}
+
+message ImageInfo {
+    string aspect_ratio = 1;
+    string url = 2;
+    string secure_url = 3;
+}
+
+message ActionInfo {
+    string type = 1;
+    string url = 2;
+    repeated string product_slug = 3;
+}
+
+message AttributesInfo {
+    string essential = 1;
+    repeated string gender = 2;
+    string primary_color = 3;
+    string primary_material = 4;
+    string neck_type = 5;
+    string pattern = 6;
+    string sleeve_type = 7;
+    string care_instructions = 8;
+    string sleeve_length = 9;
+    string color = 10;
+    string material = 11;
+    string net_quantity = 12;
+    string marketer_name = 13;
+    string marketer_address = 14;
+    string name = 15;
+    string lifestyle = 16;
+    string sustainable = 17;
+    string brand_name = 18;
+    string primary_color_hex = 19;
+}
+
+message PriceInfo {
+    message Base {
+        int32 marked = 1;
+        int32 effective = 2;
+        int32 selling_price = 3;
+        string currency_code = 4;
+        string currency_symbol = 5;
+    }
+
+    message Converted {
+        int32 marked = 1;
+        int32 effective = 2;
+        int32 selling_price = 3;
+        string currency_code = 4;
+        string currency_symbol = 5;
+    }
+
+    Base base = 1;
+    Converted converted = 2;
+}
+
+message ArticleInfo {
+    message SellerInfo {
+        int32 uid = 1;
+        string name = 2;
+    }
+
+    message StoreInfo {
+        int32 uid = 1;
+        string code = 2;
+        string name = 3;
+        string store_code = 4;
+    }
+
+    message PriceInfo {
+        message Base {
+            int32 marked = 1;
+            int32 effective = 2;
+            int32 selling = 3;
+            string currency_code = 4;
+            string currency_symbol = 5;
+        }
+
+        message Converted {
+            int32 marked = 1;
+            int32 effective = 2;
+            int32 selling = 3;
+            string currency_code = 4;
+            string currency_symbol = 5;
+        }
+
+        Base base = 1;
+        Converted converted = 2;
+    }
+
+    string uid = 1;
+    string size = 2;
+    SellerInfo seller = 3;
+    StoreInfo store = 4;
+    int32 quantity = 5;
+    PriceInfo price = 6;
+}
+
+message AvailabilityInfo {
+    message SizeAvailability {
+        bool is_available = 1;
+        string display = 2;
+        string value = 3;
+    }
+
+    repeated SizeAvailability available_sizes = 1;
+    int32 other_store_quantity = 2;
+    bool out_of_stock = 3;
+    bool deliverable = 4;
+    bool is_valid = 5;
+}
+
+message CartItemInfo {
+    BrandInfo brand = 1;
+    repeated CategoryInfo categories = 2;
+    AttributesInfo attributes = 3;
+    repeated ImageInfo images = 4;
+    ActionInfo action = 5;
+    string item_code = 6;
+    string _custom_json = 7;
+    string teaser_tag = 8;
+}
+
+message CustomOrderInfo {
+    int32 manufacturing_time = 1;
+    string manufacturing_time_unit = 2;
+    bool is_custom_order = 3;
+}
+
+message PricePerUnitInfo {
+    message Base {
+        int32 marked = 1;
+        int32 effective = 2;
+        int32 selling_price = 3;
+        string currency_code = 4;
+        string currency_symbol = 5;
+    }
+
+    message Converted {
+        int32 marked = 1;
+        int32 effective = 2;
+        int32 selling_price = 3;
+        string currency_code = 4;
+        string currency_symbol = 5;
+    }
+
+    Base base = 1;
+    Converted converted = 2;
+}
+
+message DeliveryPromise {
+    message Timestamp {
+        int64 min = 1;
+        int64 max = 2;
+    }
+
+    message Formatted {
+        string min = 1;
+        string max = 2;
+    }
+
+    Timestamp timestamp = 1;
+    Formatted formatted = 2;
+}
+
+message ParentItemIdentifiers {
+    string identifier = 1;
+    string parent_item_size = 2;
+    string parent_item_id = 3;
+}
+
+message MoqInfo {
+    int32 minimum = 1;
+}
+
+message PromotionInfo {
+    repeated string promotions_applied = 1;
+}
+
+message CartItem {
+    CartItemInfo product = 1;
+    string bulk_offer = 2;
+    string discount = 3;
+    string key = 4;
+    string message = 5;
+    string coupon = 6;
+    string promo_meta = 7;
+    CustomOrderInfo custom_order = 8;
+    PricePerUnitInfo price_per_unit = 9;
+    ArticleInfo article = 10;
+    int32 quantity = 11;
+    PriceInfo price = 12;
+    Identifiers identifiers = 13;
+    string coupon_message = 14;
+    AvailabilityInfo availability = 15;
+    DeliveryPromise delivery_promise = 16;
+    ParentItemIdentifiers parent_item_identifiers = 17;
+    bool is_set = 18;
+    MoqInfo moq = 19;
+    PromotionInfo promotions_applied = 20;
+}
+
+message CartResponse {
+    repeated CartItem items = 1;
+}
+
+message Identifiers {
+    string identifier = 1;
+}
+
+message Empty {}
