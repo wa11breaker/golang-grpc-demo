@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.26.0
 // 	protoc        v4.23.4
-// source: discount-ms/proto/discount.proto
+// source: proto/discount.proto
 
-package proto
+package discount
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -31,7 +31,7 @@ type Response struct {
 func (x *Response) Reset() {
 	*x = Response{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discount_ms_proto_discount_proto_msgTypes[0]
+		mi := &file_proto_discount_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -44,7 +44,7 @@ func (x *Response) String() string {
 func (*Response) ProtoMessage() {}
 
 func (x *Response) ProtoReflect() protoreflect.Message {
-	mi := &file_discount_ms_proto_discount_proto_msgTypes[0]
+	mi := &file_proto_discount_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +57,7 @@ func (x *Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Response.ProtoReflect.Descriptor instead.
 func (*Response) Descriptor() ([]byte, []int) {
-	return file_discount_ms_proto_discount_proto_rawDescGZIP(), []int{0}
+	return file_proto_discount_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Response) GetTimeTaken() string {
@@ -76,7 +76,7 @@ type Empty struct {
 func (x *Empty) Reset() {
 	*x = Empty{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discount_ms_proto_discount_proto_msgTypes[1]
+		mi := &file_proto_discount_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -89,7 +89,7 @@ func (x *Empty) String() string {
 func (*Empty) ProtoMessage() {}
 
 func (x *Empty) ProtoReflect() protoreflect.Message {
-	mi := &file_discount_ms_proto_discount_proto_msgTypes[1]
+	mi := &file_proto_discount_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -102,46 +102,45 @@ func (x *Empty) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Empty.ProtoReflect.Descriptor instead.
 func (*Empty) Descriptor() ([]byte, []int) {
-	return file_discount_ms_proto_discount_proto_rawDescGZIP(), []int{1}
+	return file_proto_discount_proto_rawDescGZIP(), []int{1}
 }
 
-var File_discount_ms_proto_discount_proto protoreflect.FileDescriptor
+var File_proto_discount_proto protoreflect.FileDescriptor
 
-var file_discount_ms_proto_discount_proto_rawDesc = []byte{
-	0x0a, 0x20, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2d, 0x6d, 0x73, 0x2f, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x2f, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x12, 0x10, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x5f, 0x73, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x22, 0x29, 0x0a, 0x08, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x12, 0x1d, 0x0a, 0x0a, 0x74, 0x69, 0x6d, 0x65, 0x5f, 0x74, 0x61, 0x6b, 0x65, 0x6e, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x61, 0x6b, 0x65, 0x6e, 0x22,
-	0x07, 0x0a, 0x05, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x32, 0x51, 0x0a, 0x0f, 0x44, 0x69, 0x73, 0x63,
-	0x6f, 0x75, 0x6e, 0x74, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3e, 0x0a, 0x07, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x75, 0x6e,
-	0x74, 0x5f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a,
-	0x1a, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x5f, 0x73, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x14, 0x5a, 0x12, 0x64,
-	0x69, 0x73, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2d, 0x6d, 0x73, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x2f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+var file_proto_discount_proto_rawDesc = []byte{
+	0x0a, 0x14, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x75, 0x6e, 0x74,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x10, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x75, 0x6e, 0x74,
+	0x5f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x22, 0x29, 0x0a, 0x08, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x74, 0x69, 0x6d, 0x65, 0x5f, 0x74, 0x61, 0x6b,
+	0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x61,
+	0x6b, 0x65, 0x6e, 0x22, 0x07, 0x0a, 0x05, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x32, 0x51, 0x0a, 0x0f,
+	0x44, 0x69, 0x73, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12,
+	0x3e, 0x0a, 0x07, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x2e, 0x64, 0x69, 0x73,
+	0x63, 0x6f, 0x75, 0x6e, 0x74, 0x5f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x45, 0x6d,
+	0x70, 0x74, 0x79, 0x1a, 0x1a, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x5f, 0x73,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42,
+	0x0d, 0x5a, 0x0b, 0x70, 0x62, 0x2f, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_discount_ms_proto_discount_proto_rawDescOnce sync.Once
-	file_discount_ms_proto_discount_proto_rawDescData = file_discount_ms_proto_discount_proto_rawDesc
+	file_proto_discount_proto_rawDescOnce sync.Once
+	file_proto_discount_proto_rawDescData = file_proto_discount_proto_rawDesc
 )
 
-func file_discount_ms_proto_discount_proto_rawDescGZIP() []byte {
-	file_discount_ms_proto_discount_proto_rawDescOnce.Do(func() {
-		file_discount_ms_proto_discount_proto_rawDescData = protoimpl.X.CompressGZIP(file_discount_ms_proto_discount_proto_rawDescData)
+func file_proto_discount_proto_rawDescGZIP() []byte {
+	file_proto_discount_proto_rawDescOnce.Do(func() {
+		file_proto_discount_proto_rawDescData = protoimpl.X.CompressGZIP(file_proto_discount_proto_rawDescData)
 	})
-	return file_discount_ms_proto_discount_proto_rawDescData
+	return file_proto_discount_proto_rawDescData
 }
 
-var file_discount_ms_proto_discount_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_discount_ms_proto_discount_proto_goTypes = []interface{}{
+var file_proto_discount_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_proto_discount_proto_goTypes = []interface{}{
 	(*Response)(nil), // 0: discount_service.Response
 	(*Empty)(nil),    // 1: discount_service.Empty
 }
-var file_discount_ms_proto_discount_proto_depIdxs = []int32{
+var file_proto_discount_proto_depIdxs = []int32{
 	1, // 0: discount_service.DiscountService.Request:input_type -> discount_service.Empty
 	0, // 1: discount_service.DiscountService.Request:output_type -> discount_service.Response
 	1, // [1:2] is the sub-list for method output_type
@@ -151,13 +150,13 @@ var file_discount_ms_proto_discount_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_discount_ms_proto_discount_proto_init() }
-func file_discount_ms_proto_discount_proto_init() {
-	if File_discount_ms_proto_discount_proto != nil {
+func init() { file_proto_discount_proto_init() }
+func file_proto_discount_proto_init() {
+	if File_proto_discount_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_discount_ms_proto_discount_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_discount_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Response); i {
 			case 0:
 				return &v.state
@@ -169,7 +168,7 @@ func file_discount_ms_proto_discount_proto_init() {
 				return nil
 			}
 		}
-		file_discount_ms_proto_discount_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_discount_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Empty); i {
 			case 0:
 				return &v.state
@@ -186,18 +185,18 @@ func file_discount_ms_proto_discount_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_discount_ms_proto_discount_proto_rawDesc,
+			RawDescriptor: file_proto_discount_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_discount_ms_proto_discount_proto_goTypes,
-		DependencyIndexes: file_discount_ms_proto_discount_proto_depIdxs,
-		MessageInfos:      file_discount_ms_proto_discount_proto_msgTypes,
+		GoTypes:           file_proto_discount_proto_goTypes,
+		DependencyIndexes: file_proto_discount_proto_depIdxs,
+		MessageInfos:      file_proto_discount_proto_msgTypes,
 	}.Build()
-	File_discount_ms_proto_discount_proto = out.File
-	file_discount_ms_proto_discount_proto_rawDesc = nil
-	file_discount_ms_proto_discount_proto_goTypes = nil
-	file_discount_ms_proto_discount_proto_depIdxs = nil
+	File_proto_discount_proto = out.File
+	file_proto_discount_proto_rawDesc = nil
+	file_proto_discount_proto_goTypes = nil
+	file_proto_discount_proto_depIdxs = nil
 }

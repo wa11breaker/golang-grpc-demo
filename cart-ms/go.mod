@@ -1,4 +1,4 @@
-module grpc-demo
+module cart-ms
 
 go 1.19
 

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package discount_service;
 
-option go_package = "discount-ms/proto/";
+option go_package = "pb/discount";
 
 service DiscountService {
     rpc Request (Empty) returns (Response);

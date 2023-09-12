@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.3.0
 // - protoc             v4.23.4
-// source: discount-ms/proto/discount.proto
+// source: proto/discount.proto
 
-package proto
+package discount
 
 import (
 	context "context"
@@ -105,5 +105,5 @@ var DiscountService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "discount-ms/proto/discount.proto",
+	Metadata: "proto/discount.proto",
 }

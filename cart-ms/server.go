@@ -4,22 +4,27 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/status"
-	pb "grpc-demo/cart-ms/proto"
 	"io/ioutil"
 	"log"
 	"net"
 	"time"
+
+	pb "cart-ms/pb"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
-// Struct that implements the CartServiceServer interface
+const (
+	serverPort         = ":50051"
+)
+
+// cartServiceServer implements the CartServiceServer interface
 type cartServiceServer struct {
-	pb.CartServiceServer
+	pb.UnimplementedCartServiceServer
 }
 
-// Implement the GetCart RPC method
+// GetCart implements the GetCart RPC method
 func (s *cartServiceServer) GetCart(ctx context.Context, empty *pb.Empty) (*pb.CartResponse, error) {
 	startTime := time.Now()
 	data, err := ioutil.ReadFile("data/data_10kb.json")
@@ -43,7 +48,7 @@ func (s *cartServiceServer) GetCart(ctx context.Context, empty *pb.Empty) (*pb.C
 
 func main() {
 	// Create a gRPC server
-	lis, err := net.Listen("tcp", ":50051")
+	lis, err := net.Listen("tcp", serverPort)
 	if err != nil {
 		fmt.Printf("Failed to listen: %v\n", err)
 		return
@@ -53,8 +58,10 @@ func main() {
 	// Register the CartServiceServer
 	pb.RegisterCartServiceServer(s, &cartServiceServer{})
 
-	fmt.Println("gRPC server is running on :50051")
+	fmt.Println("Cart ms is running on :50051")
+
 	if err := s.Serve(lis); err != nil {
 		fmt.Printf("Failed to serve: %v\n", err)
+		return
 	}
 }
